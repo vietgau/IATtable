@@ -186,7 +186,7 @@ VOID printIATtable(LPBYTE lpAddress , IMAGE_DOS_HEADER* pDosHeader, FunctionList
 	PIMAGE_THUNK_DATA	pOriginalFirstThunk = (PIMAGE_THUNK_DATA)(lpAddress + pImportDir->OriginalFirstThunk); // ILT
 	PIMAGE_THUNK_DATA	pFirstThunk = (PIMAGE_THUNK_DATA)(lpAddress + pImportDir->FirstThunk); // IAT
 	PSIZE_T				pFunction = nullptr;
-	function f;
+	TY_Function f;
 	do {
 		PIMAGE_IMPORT_BY_NAME pName = (PIMAGE_IMPORT_BY_NAME)(lpAddress + pOriginalFirstThunk->u1.AddressOfData);
 		pFunction = (PSIZE_T) & (pFirstThunk->u1.Function);
