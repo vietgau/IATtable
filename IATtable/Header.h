@@ -6,7 +6,7 @@
 #include<iostream>
 using namespace std;
 typedef struct function {
-	string name;
+	char* name;
 	LPVOID address;
 }TY_Function;
 typedef vector <TY_Function> FunctionList;

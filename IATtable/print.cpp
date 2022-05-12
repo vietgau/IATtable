@@ -190,11 +190,11 @@ VOID printIATtable(LPBYTE lpAddress , IMAGE_DOS_HEADER* pDosHeader, FunctionList
 	do {
 		PIMAGE_IMPORT_BY_NAME pName = (PIMAGE_IMPORT_BY_NAME)(lpAddress + pOriginalFirstThunk->u1.AddressOfData);
 		pFunction = (PSIZE_T) & (pFirstThunk->u1.Function);
-		printf(" %s dia chi : 0x%p\n\n", (char*)pName->Name, (void*)(*pFunction));
-		string name = pName->Name;
+		char* name = pName->Name;
 		LPVOID address = (void*)(*pFunction);
 		f.name = name;
 		f.address = address;
+		printf(" %s dia chi : 0x%p\n\n", name, address);
 		fList->push_back(f);
 		pFirstThunk++;
 		pOriginalFirstThunk++;
