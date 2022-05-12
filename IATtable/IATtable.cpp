@@ -8,12 +8,12 @@ int main()
 	FunctionList fList ;
 	MODULEINFO modInfo;
 	HMODULE hMod = GetModuleHandle(0);
-
+	//DWORD PID = GetCurrentProcessId();
+	//HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);
+	//LPBYTE lpAddress1 = GetProcAddress
 	GetModuleInformation(GetCurrentProcess(), hMod, &modInfo, sizeof(MODULEINFO));
 	LPBYTE lpAddress = (LPBYTE)modInfo.lpBaseOfDll;
-	printf("Base virtual address(DOS_HEADER) of Process :%p\n", (void*)lpAddress);
-	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
-	printIATtable(lpAddress, pDosHeader, &fList);
+	printIATtable(lpAddress, &fList);
 	//printDosHeader(pDosHeader);
 	//printNTHeader(pDosHeader);
 	//printDataDirectory(pDosHeader);

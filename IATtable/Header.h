@@ -17,6 +17,6 @@ VOID printFileHeader(IMAGE_DOS_HEADER* dosHeader);
 VOID printOptionHeader(IMAGE_DOS_HEADER* dosHeader);
 VOID printDataDirectory(IMAGE_DOS_HEADER* dosHeader);
 VOID printSectionHeader(IMAGE_DOS_HEADER* dosHeader);
-VOID printIATtable(LPBYTE lpAddress, IMAGE_DOS_HEADER* pDosHeader, FunctionList* fList);
+VOID printIATtable(LPBYTE lpAddress, FunctionList* fList);
 void display_list(FunctionList* fList);
 void print_info(TY_Function* f);

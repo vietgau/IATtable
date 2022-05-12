@@ -171,7 +171,10 @@ VOID printSectionHeader(IMAGE_DOS_HEADER* dosHeader) {
 	}
 
 }
-VOID printIATtable(LPBYTE lpAddress , IMAGE_DOS_HEADER* pDosHeader, FunctionList* fList) {
+VOID printIATtable(LPBYTE lpAddress ,  FunctionList* fList) {
+
+	printf("Base virtual address(DOS_HEADER) of Process :%p\n", (void*)lpAddress);
+	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
 	PIMAGE_NT_HEADERS pNTHeader = (PIMAGE_NT_HEADERS)(lpAddress + pDosHeader->e_lfanew);
 	printf("NT_HEADER Address : %p\n", (void*)pNTHeader);
 	PIMAGE_OPTIONAL_HEADER pOptionHeader = (PIMAGE_OPTIONAL_HEADER) & (pNTHeader->OptionalHeader);
