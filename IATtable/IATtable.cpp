@@ -14,8 +14,9 @@ int main()
 	printf("Base virtual address(DOS_HEADER) of Process :%p\n", (void*)lpAddress);
 	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
 	printIATtable(lpAddress, pDosHeader, &fList);
-	printDosHeader(pDosHeader);
-	printNTHeader(pDosHeader);
-	printDataDirectory(pDosHeader);
-	printSectionHeader(pDosHeader);
+	//printDosHeader(pDosHeader);
+	//printNTHeader(pDosHeader);
+	//printDataDirectory(pDosHeader);
+	//printSectionHeader(pDosHeader);
+	display_list(&fList);
 }

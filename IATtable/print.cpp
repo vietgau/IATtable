@@ -201,3 +201,19 @@ VOID printIATtable(LPBYTE lpAddress , IMAGE_DOS_HEADER* pDosHeader, FunctionList
 
 	} while (pOriginalFirstThunk->u1.AddressOfData);
 }
+void display_list(FunctionList* fList) {
+	if (fList->empty()) {
+		cout << "NO RECORDS\n";
+		return;
+	}
+	
+	cout << "NAME\t" << "address\t\n";
+	cout << "---------------------------------------------------------------\n";
+
+	for (auto tmp : *fList) {
+		print_info(&tmp);
+	}
+}
+void print_info(TY_Function* f) {
+	cout << f->name << "\t" << f->address << "\t" << endl;	
+}
