@@ -12,10 +12,10 @@ int main()
 	LPBYTE lpAddress = (LPBYTE)modInfo.lpBaseOfDll;
 	
 	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
+	//MessageBoxA(NULL, "fuck offf!!!", NULL, 0);
 	char* funcName = (char*)"GetProcAddress";
 	//printIATtable(lpAddress, &fList);
-	RunFunction(funcName, 10000);
-
+	RunFunction(funcName);
 	//printDosHeader(pDosHeader);
 	//printNTHeader(pDosHeader);
 	//printDataDirectory(pDosHeader);

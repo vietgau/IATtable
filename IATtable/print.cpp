@@ -247,12 +247,11 @@ PSIZE_T FindFunctionAddress(char* funcName) {
 
 	return 0;
 }
-void RunFunction(char* funcName, SIZE_T function)
+void RunFunction(char* funcName)
 {
 	PSIZE_T pFunction = FindFunctionAddress(funcName);
-	DWORD accessProtectionValue, accessProtec;
-
-	int vProtect = VirtualProtect(pFunction, sizeof(PSIZE_T), PAGE_EXECUTE_READWRITE, &accessProtectionValue);
-	*pFunction = function;
-	vProtect = VirtualProtect(pFunction, sizeof(PSIZE_T), accessProtectionValue, &accessProtec);
+	PSIZE_T pGPA;
+	NewGetProcAddress GPA = (NewGetProcAddress)*pFunction;
+	pGPA = (PSIZE_T)GPA(GetModuleHandle(TEXT("kernel32.dll")),"GetCurrentProcess");
+	printf(" %p\n\n", pGPA);
 }
