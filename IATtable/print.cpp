@@ -253,5 +253,5 @@ void RunFunction(char* funcName)
 	PSIZE_T pGPA;
 	NewGetProcAddress GPA = (NewGetProcAddress)*pFunction;
 	pGPA = (PSIZE_T)GPA(GetModuleHandle(TEXT("kernel32.dll")),"GetCurrentProcess");
-	printf(" %p\n\n", pGPA);
+	printf(" GetCurrentProcess: %p\n\n", pGPA);
 }
