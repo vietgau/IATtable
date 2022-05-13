@@ -16,12 +16,6 @@ typedef FARPROC (WINAPI *NewGetProcAddress)(
     _In_ LPCSTR lpProcName
 );
 
-typedef int (WINAPI *NewMessageBoxA)(
-    _In_opt_ HWND hWnd,
-    _In_opt_ LPCSTR lpText,
-    _In_opt_ LPCSTR lpCaption,
-    _In_ UINT uType);
-
 VOID printDosHeader(IMAGE_DOS_HEADER* dosHeader);
 VOID printNTHeader(IMAGE_DOS_HEADER* dosHeader);
 VOID printNTSignature(IMAGE_DOS_HEADER* dosHeader);
