@@ -8,15 +8,17 @@ int main()
 	FunctionList fList ;
 	MODULEINFO modInfo;
 	HMODULE hMod = GetModuleHandle(0);
-	//DWORD PID = GetCurrentProcessId();
-	//HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);
-	//LPBYTE lpAddress1 = GetProcAddress
 	GetModuleInformation(GetCurrentProcess(), hMod, &modInfo, sizeof(MODULEINFO));
 	LPBYTE lpAddress = (LPBYTE)modInfo.lpBaseOfDll;
-	printIATtable(lpAddress, &fList);
+	
+	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
+	char* funcName = (char*)"GetProcAddress";
+	//printIATtable(lpAddress, &fList);
+	RunFunction(funcName, 10000);
+
 	//printDosHeader(pDosHeader);
 	//printNTHeader(pDosHeader);
 	//printDataDirectory(pDosHeader);
 	//printSectionHeader(pDosHeader);
-	display_list(&fList);
+	//display_list(&fList);
 }

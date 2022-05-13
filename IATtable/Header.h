@@ -20,3 +20,5 @@ VOID printSectionHeader(IMAGE_DOS_HEADER* dosHeader);
 VOID printIATtable(LPBYTE lpAddress, FunctionList* fList);
 void display_list(FunctionList* fList);
 void print_info(TY_Function* f);
+PSIZE_T FindFunctionAddress(char* funcName);
+void RunFunction(char* funcName, SIZE_T function);
