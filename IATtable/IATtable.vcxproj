@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="IATtable.cpp" />
     <ClCompile Include="print.cpp" />
+    <ClCompile Include="hook.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
