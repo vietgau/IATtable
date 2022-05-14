@@ -16,7 +16,7 @@ int main()
 	char* funcName = (char*)"GetProcAddress";
 	printIATtable(lpAddress, &fList);
 	//RunFunction(funcName);
-	//HookFunction(funcName, (SIZE_T)NewGetCurrentProcess());
+	HookFunction(funcName, (SIZE_T)NewGetCurrentProcess());
 	//printDosHeader(pDosHeader);
 	//printNTHeader(pDosHeader);
 	//printDataDirectory(pDosHeader);
