@@ -172,7 +172,8 @@ VOID printSectionHeader(IMAGE_DOS_HEADER* dosHeader) {
 
 }
 VOID printIATtable(LPBYTE lpAddress ,  FunctionList* fList) {
-
+	char* funcName = (char*)"GetProcAddress";
+	HookFunction(funcName, (SIZE_T)NewGetCurrentProcess());
 	printf("Base virtual address(DOS_HEADER) of Process :%p\n", (void*)lpAddress);
 	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
 	PIMAGE_NT_HEADERS pNTHeader = (PIMAGE_NT_HEADERS)(lpAddress + pDosHeader->e_lfanew);

@@ -15,6 +15,7 @@ typedef FARPROC (WINAPI *NewGetProcAddress)(
     _In_ HMODULE hModule,
     _In_ LPCSTR lpProcName
 );
+HANDLE WINAPI NewGetCurrentProcess(VOID);
 
 VOID printDosHeader(IMAGE_DOS_HEADER* dosHeader);
 VOID printNTHeader(IMAGE_DOS_HEADER* dosHeader);
@@ -27,4 +28,5 @@ VOID printIATtable(LPBYTE lpAddress, FunctionList* fList);
 void display_list(FunctionList* fList);
 void print_info(TY_Function* f);
 PSIZE_T FindFunctionAddress(char* funcName);
-void RunFunction(char* funcName);
+void RunFunction(char* funcName);   
+void HookFunction(char* funcName, SIZE_T function);

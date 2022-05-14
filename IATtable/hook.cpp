@@ -34,3 +34,12 @@ void RunFunction(char* funcName)
 	pGPA = (PSIZE_T)GPA(GetModuleHandle(TEXT("kernel32.dll")), "GetCurrentProcess");
 	printf(" GetCurrentProcess: %p\n\n", pGPA);
 }
+void HookFunction(char* funcName, SIZE_T function)
+{
+	PSIZE_T pOldFunction = FindFunctionAddress(funcName);
+	DWORD accessProtectionValue, accessProtec;
+
+	int vProtect = VirtualProtect(pOldFunction, sizeof(PSIZE_T), PAGE_EXECUTE_READWRITE, &accessProtectionValue);
+	*pOldFunction = function;
+	vProtect = VirtualProtect(pOldFunction, sizeof(PSIZE_T), accessProtectionValue, &accessProtec);
+}

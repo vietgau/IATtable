@@ -14,11 +14,12 @@ int main()
 	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)lpAddress;
 	//MessageBoxA(NULL, "fuck offf!!!", NULL, 0);
 	char* funcName = (char*)"GetProcAddress";
-	//printIATtable(lpAddress, &fList);
-	RunFunction(funcName);
+	printIATtable(lpAddress, &fList);
+	//RunFunction(funcName);
+	//HookFunction(funcName, (SIZE_T)NewGetCurrentProcess());
 	//printDosHeader(pDosHeader);
 	//printNTHeader(pDosHeader);
 	//printDataDirectory(pDosHeader);
 	//printSectionHeader(pDosHeader);
-	//display_list(&fList);
+	display_list(&fList);
 }
